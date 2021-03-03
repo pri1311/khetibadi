@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "26226529581",
+    "project_id": "khetibaadi-7f307",
+    "storage_bucket": "khetibaadi-7f307.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26226529581:android:5c6d0970988a1c72a4efa4",
+        "android_client_info": {
+          "package_name": "com.syntaxerror.khetibaadi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26226529581-3ocukd8tcjdkenkdv0523s72p4soffav.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFEDXvAVDZZlLPb3Va1zCsh25OjIvzng0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26226529581-3ocukd8tcjdkenkdv0523s72p4soffav.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
