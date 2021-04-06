@@ -64,10 +64,6 @@ class _newsScreenState extends State<newsScreen> {
                   title: data[2]['title'],
                   articlebody: data[2]['content'],
                 ),
-                newsCard(
-                  title: data[3]['title'],
-                  articlebody: data[3]['content'],
-                ),
               ],
             ),
           )),

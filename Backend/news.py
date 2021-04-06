@@ -21,9 +21,13 @@ class news:
     def parse_content(html):
         soup = BeautifulSoup(html,'html.parser')
         results = []
+        count = 1
         # items = soup.find_all("div",class_="")[ 'sh-dgr__gr-auto','sh-pr__grid-result']
         items = soup.findAll("div", {'class':'g'})
         for item in items:  
+            if count > 3 :
+                break
+            count = count + 1
             link = item.div.div.a.get('href')
             title = item.div.div.a.h3.text
             response = requests.get(link, headers={'User-Agent': random.choice(USER_AGENTS)})

@@ -35,7 +35,9 @@ class _productScreenState extends State<productScreen> {
     );
     final decoded = json.decode(response.body) as Map<String, dynamic>;
 
-    data = decoded['data'];
+    setState(() {
+      data = decoded['data'];
+    });
     print(data);
   }
 
@@ -46,26 +48,27 @@ class _productScreenState extends State<productScreen> {
       child: Scaffold(
           backgroundColor: Colors.black,
           body: SafeArea(
-            child: ListView(
-              children: [
-                productDetailCard(
-                    name: data[0]['name'],
-                    price: data[0]['price'],
-                    seller: data[0]['seller'],
-                    link: data[0]['link']),
-                productDetailCard(
-                    name: data[1]['name'],
-                    price: data[1]['price'],
-                    seller: data[1]['seller'],
-                    link: data[1]['link']),
-                productDetailCard(
-                    name: data[2]['name'],
-                    price: data[2]['price'],
-                    seller: data[2]['seller'],
-                    link: data[2]['link']),
-              ],
-            ),
-          )),
+              child: data.length > 0
+                  ? ListView(
+                      children: [
+                        productDetailCard(
+                          name: data[0]['name'],
+                          price: data[0]['price'],
+                          seller: data[0]['seller'],
+                        ),
+                        productDetailCard(
+                          name: data[1]['name'],
+                          price: data[1]['price'],
+                          seller: data[1]['seller'],
+                        ),
+                        productDetailCard(
+                          name: data[2]['name'],
+                          price: data[2]['price'],
+                          seller: data[2]['seller'],
+                        )
+                      ],
+                    )
+                  : Text("Awaiting Data"))),
     );
   }
 }
@@ -77,8 +80,7 @@ class productDetailCard extends StatelessWidget {
 
   String seller;
 
-  String link;
-  productDetailCard({this.name, this.price, this.seller, this.link});
+  productDetailCard({this.name, this.price, this.seller});
 
   @override
   Widget build(BuildContext context) {
@@ -134,20 +136,6 @@ class productDetailCard extends StatelessWidget {
                               softWrap: true,
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Container(
-                              width: c_width,
-                              child: Text(
-                                link,
-                                softWrap: true,
-                                style: TextStyle(
-                                    decoration: TextDecoration.underline,
-                                    color: Colors.white,
-                                    fontSize: 16),
-                              ),
                             ),
                           ),
                         ],

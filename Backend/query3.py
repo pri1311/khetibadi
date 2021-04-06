@@ -32,7 +32,7 @@ class query3:
             price = item.find("span", {'class': 'kHxwFf'}).span.span.text
             seller = item.find('a').text
             name = item.find('h4', attrs={'class': 'A2sOrd'}).text
-            link = item.find("div", {'class':'sh-dgr__thumbnail'}).a.get('href')
+            # link = item.find("div", {'class':'sh-dgr__thumbnail'}).a.get('href')
             starsDiv = item.find('div', attrs={'class': '_OBj'})
             reviewsSpan = item.find('span', attrs={'class': '_Ezj'})
             reviews = 0
@@ -41,7 +41,7 @@ class query3:
             stars = 0
             if starsDiv:
                 stars = starsDiv['aria-label']
-            results.append({'name': name, 'price': price, 'seller': seller, 'reviews': reviews,'stars': stars,'link':'www.google.com'+link})
+            results.append({'name': name, 'price': price, 'seller': seller, 'reviews': reviews,'stars': stars})
             # print({'name': name, 'price': price, 'seller': seller, 'reviews': reviews,'stars': stars})
         print(results)
         return results
